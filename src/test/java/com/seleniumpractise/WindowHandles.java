@@ -20,14 +20,16 @@ public class WindowHandles {
 		// single window
 
 		String parentwindowhandle = driver.getWindowHandle();// every window has unique address called windowhandle so
-																// asking driver to give the windowhandle
+																// asking driver to give the windowhandle and get window gives id  or address of single brwoser window
 		System.out.println("parent window-" + parentwindowhandle + driver.getTitle());// title of parent window
 		Thread.sleep(5000);
-driver.manage().window().fullscreen();// if click not working we can use full screen so it will work
+		driver.manage().window().fullscreen();// if click not working we can use full screen so it will work
 		driver.findElement(By.id("newWindowBtn")).click();
 		Thread.sleep(3000);
 
-		Set<String> windowhandles = driver.getWindowHandles();// set using because window address is unique
+		Set<String> windowhandles = driver.getWindowHandles();// set using because window address is unique, get
+																// windowhandles is the id of multiple window handle and
+																// stores in set because of unique
 		for (String windowhandle : windowhandles) {
 			if (!windowhandle.equals(parentwindowhandle)) {
 				driver.switchTo().window(windowhandle);

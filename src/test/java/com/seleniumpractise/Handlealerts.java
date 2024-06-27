@@ -20,9 +20,9 @@ public class Handlealerts {
 //		Thread.sleep(3000);
 //		driver.findElement(By.id("alertBox")).click();
 //		Thread.sleep(3000);
-//		System.out.println(driver.switchTo().alert().getText());
+//		System.out.println(driver.switchTo().alert().getText());//switch to alert box and get txt msg
 //		Thread.sleep(3000);
-//		driver.switchTo().alert().accept();
+//		driver.switchTo().alert().accept();// click on ok button
 //		Thread.sleep(3000);
 //		System.out.println(driver.findElement(By.id("output")).getText());// prints output
 		
@@ -72,7 +72,7 @@ public class Handlealerts {
 		driver.findElement(By.id("promptBox")).click();
 		Thread.sleep(3000);
 		System.out.println(driver.switchTo().alert().getText());
-		driver.switchTo().alert().sendKeys("Aruna Reddy");
+		driver.switchTo().alert().sendKeys("Aruna");
 		Thread.sleep(3000);
 		driver.switchTo().alert().dismiss();//cancel button
 		Thread.sleep(3000);

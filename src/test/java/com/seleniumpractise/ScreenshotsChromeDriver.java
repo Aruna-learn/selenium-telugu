@@ -43,7 +43,7 @@ public class ScreenshotsChromeDriver {
 		String st=driver.getScreenshotAs(OutputType.BASE64);
 		byte[] byteArr=Base64.getDecoder().decode("st");//Base64 is class, st is encoded string to decode we use the decoder, and decoding st it will give byte array
 		File destfile=new File("./Screenshots/img3.jpg");
-		FileOutputStream fos=new FileOutputStream(destfile);
+		FileOutputStream fos=new FileOutputStream(destfile);//converting string to image
 		fos.write(byteArr);
 		fos.close();
 		System.out.println("Screenshot saved successfully");

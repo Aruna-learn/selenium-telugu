@@ -19,12 +19,12 @@ public class HandleFrames {
 		driver.findElement(By.id("name")).sendKeys("text1");//type text1 in text box main document
 		Thread.sleep(3000);
 
-		driver.switchTo().frame("frm1");//focus in frame1
+		driver.switchTo().frame("frm1");//focus in frame1 and frame as name
 		Select coursenamedropdown=new Select(driver.findElement(By.id("course")));
 		coursenamedropdown.selectByVisibleText("Dot Net");//select dot net in frame1
 		
 		
-		driver.switchTo().defaultContent();//frameout and went to main content/main document
+		driver.switchTo().defaultContent();//frameout and went to main content/main document main frame
 		driver.findElement(By.id("name")).clear();//clear text1
 		driver.findElement(By.id("name")).sendKeys("text2");//enter text2
 		

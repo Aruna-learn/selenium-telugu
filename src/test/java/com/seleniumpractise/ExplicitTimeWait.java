@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,6 +28,8 @@ public class ExplicitTimeWait {
 		
 		FluentWait<WebDriver> wait=new FluentWait<WebDriver>(driver);
 		wait.withTimeout(Duration.ofMillis(500));
+		wait.pollingEvery(Duration.ofSeconds(5));
+		wait.ignoring(NoSuchElementException.class);
 		
 	driver.get("https://www.rainforestqa.com/blog/free-test-automation-tools");
 		//driver.get("https://mailosaur.com/blog/getting-started-with-testproject");
@@ -40,33 +43,40 @@ public class ExplicitTimeWait {
 			if(!windowhandle.equals(parentwindowhandle)) {
 				driver.switchTo().window(windowhandle);
 				
+				Thread.sleep(5000);
+				driver.findElement(By.cssSelector("input[placeholder='Enter your email address']")).sendKeys("test@gmail.com");
+				System.out.println("email entered successfully");
+//			
 //				Function<WebDriver, Boolean> f=new Function<WebDriver, Boolean>() {//2.If we want to implement function rather than using expected conditions we use this
 //
 //					public Boolean apply(WebDriver webdriver) {
 //						// TODO Auto-generated method stub
 //						return webdriver.findElement(By.name("email")).isDisplayed();
-//					}
 //					
 //					
-				}
+			}				
+				
 				
 				//wait.until(f);
 				//wait.until(d->d.findElement(By.name("email")).isDisplayed());//3. we can use lamda expession or anonymous class also for explicit wait
 				
 				//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.name("email")));//1.expected condition by selenium people for explicit wait
 			
-				driver.findElement(By.name("email")).sendKeys("test@gmail.com");
-				System.out.println("email entered successfully");
 			}
 			
 		}
+			
+}
+			
 		
 		
-		
-		
-		
+	
 
-	}
+		
+		
+	
+
+	
 
 //To define explicit wait create object in 2 ways
 //webdriver wait

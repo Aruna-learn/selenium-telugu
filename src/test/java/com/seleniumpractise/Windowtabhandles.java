@@ -19,14 +19,17 @@ public class Windowtabhandles {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("https://www.hyrtutorials.com/p/window-handles-practice.html");
 		Thread.sleep(3000);
 		String parentwindowhandle = driver.getWindowHandle();// every window has unique address called windowhandle so
 		// asking driver to give the windowhandle
 		System.out.println("parent window-" + parentwindowhandle + driver.getTitle());// title of parent window
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//button[@id='newTabBtn']")).click();
 		
-		new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.id("newTabBtn"))).click();//using explici clickable we open the clck
+		
+		//new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.id("newTabBtn"))).click();//using explici clickable we open the clck
 
 		//WebElement newTabBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("newTabBtn")));
 		//newTabBtn.click();
@@ -49,7 +52,7 @@ public class Windowtabhandles {
 				Thread.sleep(3000);
 				System.out.println(driver.findElement(By.id("output")).getText());// prints output
 				Thread.sleep(3000);
-				driver.close();
+				driver.close();//close currently focused window 1 window
 
 			}
 	}

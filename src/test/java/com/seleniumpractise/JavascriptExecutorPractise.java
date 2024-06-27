@@ -1,5 +1,6 @@
 package com.seleniumpractise;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +18,7 @@ public class JavascriptExecutorPractise {
 		
 		driver.get("https://www.facebook.com/");
 		
-		//JavascriptExecutor jsex=(JavascriptExecutor) driver;//driver object is webdriver type for we hve to typecast here and created reference for javascript executor
+		JavascriptExecutor jsex=(JavascriptExecutor) driver;//driver object is webdriver type for we hve to typecast here and created reference for javascript executor
 	
 		//jsex.executeScript(" document.getElementById('email')");//find element using js executor
 		
@@ -57,9 +58,12 @@ public class JavascriptExecutorPractise {
 		
 		
 		
-		
-		JavascriptExecutor jsex=(JavascriptExecutor) driver;
-		
+	/*
+	 * driver.get("https://www.google.com");
+	 * 
+	 * JavascriptExecutor jsex=(JavascriptExecutor) driver;
+	 * jsex.executeScript("alert('Hello')" );//alert created in google
+	 */
 		
 		//enter text in textbox
 //		jsex.executeScript(" document.getElementById('email').value='id';");
@@ -80,10 +84,17 @@ public class JavascriptExecutorPractise {
 //		
 		
 	//click operations	
+		//we can find element using js and js click
+		//we can find element using webdriver and click
+		//we can find elemnt using webdriver and js click
 		
-		jsex.executeScript("document.getElementsByName('login')[0].click()");
+		
+		//jsex.executeScript("document.getElementsByName('login')[0].click()");//js find and js click
+		//driver.findElement(By.name("login")).click();//driver element find and driver click
 		
 		
+	WebElement link=	driver.findElement(By.name("login"));
+	jsex.executeScript("arguments[0].click()", link);//driver element find and js click
 		
 		
 		

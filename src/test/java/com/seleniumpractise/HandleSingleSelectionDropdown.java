@@ -25,7 +25,7 @@ public class HandleSingleSelectionDropdown {
 		Select courseDropdown = new Select(courseElement);// select class used for the dropdown option get and used all
 															// the select class methods to select options
 
-		List<WebElement> courseDropdownoptions = courseDropdown.getOptions();// print all elements in dropdown
+		List<WebElement> courseDropdownoptions = courseDropdown.getOptions();// print all elements in dropdown using get options
 
 		for (WebElement option : courseDropdownoptions) {
 			System.out.println(option.getText());

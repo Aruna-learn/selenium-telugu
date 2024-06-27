@@ -26,7 +26,7 @@ public class ApplicaionPopertiesURLTitlePagesource {
 	//HTML Pagesource
 	 String pagesource=driver.getPageSource();
 	 System.out.println(pagesource);
-	
+ 
 	
 	
 	driver.quit();
